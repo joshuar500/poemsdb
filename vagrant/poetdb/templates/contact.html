@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]--> 
+<!--[if IE 9 ]>    <html lang="en" class="ie"> <![endif]--> 
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<title>Typeface - Minimal Html/jQuery template by pezflash</title>
+	<meta name="description" content="Html - jQuery template by pezflash"/>
+	<meta name="keywords" content=""/>
+	<meta name="robots" content="index, follow"/>
+	
+	<!-- CSS -->
+	<link rel="shortcut icon" href="images/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="css/reset.css" media="all">
+	<link rel="stylesheet" type="text/css" href="js/tipsy/tipsy.css" />
+	<link rel="stylesheet" type="text/css" href="js/prettyPopin/prettyPopin.css" />
+	<link rel="stylesheet" type="text/css" href="css/styles.css" />
+	
+	<!-- SCRIPTS -->
+	<script type="text/javascript" src="js/jquery/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery-ui-1.10.1.custom.min.js"></script>
+	<script type="text/javascript" src="js/screenfull/screenfull.js"></script>
+	<script type="text/javascript" src="js/tipsy/jquery.tipsy.js"></script>
+	<script type="text/javascript" src="js/prettyPopin/jquery.prettyPopin.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery.form.js"></script>
+	<script type="text/javascript" src="js/mdetect/mdetect.js"></script>
+	<script type="text/javascript" src="js/configuration.js"></script>
+
+	<!-- CUSTOM SCRIPTS FOR THIS PAGE -->
+	<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+	<script type="text/javascript" src="js/gmap/jquery.gmap.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+				//CACHE VARS
+				var map = $('#contact .map');
+				var icon = $('#loader_icon');
+
+				//TOGGLE MAP VISIBILITY
+				$('.map-button').toggle(function() {
+					map.css({ visibility:'visible' }).stop(true, true).animate({ opacity: 1 }, 500, 'linear');
+					$(this).text("HIDE MAP");
+
+				}, function() {
+					map.css({ visibility:'hidden' }).stop(true, true).animate({ opacity: 0 }, 500, 'linear');
+					$(this).text("VIEW MAP");
+				});
+
+				//SET HERE YOUR LOCATION (MARKER WITH LATITUDE-LONGITUDE)
+				//OR USE DIRECT LOCATION (SAMPLE): $('#contact .map').gMap({ address: 'London, UK', zoom:15 });
+				map.gMap({ zoom: 14, mapTypeControl: false, markers: [{
+						latitude: 51.520782,
+						longitude: -0.125886,
+						html: 'KF&amp;KOI Office,<br/>325 Russell Street<br/>London City',
+						title: "office",
+						popup: false,
+						icon: {image: 'images/contact/pin.png'}
+					}]
+				});
+
+				//AJAX SCRIPT FOR CONTACT FORM VALIDATION
+				showLoader = function() {
+					icon.fadeIn("slow");
+				};
+						 
+				checkStatus = function(status) {
+					icon.fadeOut("slow");
+					document.getElementById('ajax_loader').innerHTML = status;
+				};
+
+				var formOpt = { beforeSubmit:showLoader, success:checkStatus };
+				$('#myForm').ajaxForm(formOpt);	
+				
+		});
+	</script>
+
+</head>
+
+
+<body>
+
+	<!-- FULLSCREEN HTML5 CONTAINER -->
+	<div id="canvas" class="canvas">
+
+
+		<!-- FULLSCREEN BACKGROUND -->
+		<div id="backg">
+			<img src="images/background.jpg" class="bg" alt="" />
+		</div>
+		
+		
+			
+		<!-- HEADER --> 
+		<div id="header">
+			<a href="index.html"><img src="images/logo.png" alt="" /></a>
+		</div>
+
+
+
+		<!-- MENU -->
+		<div id="menu">
+				<ul>
+					<li>
+						<a href="#">GALLERIES</a>
+						<ul class="second-level">
+							<li><a href="horizontal_gallery.html">HORIZONTAL GALLERY</a></li>
+							<li><a href="fullscreen_gallery.html">FULLSCREEN GALLERY</a></li>
+							<li><a href="grid_gallery.html">GRID GALLERY</a></li>
+							<li><a href="slider_gallery.html">SLIDER GALLERY</a></li>
+							<li><a href="video_gallery.html">HTML5 VIDEO</a></li>
+							<li><a href="team.html">TEAM</a></li>
+						</ul>
+					</li>
+
+					<li><a href="about.html">ABOUT</a></li>
+					<li><a href="testimonials.html">TESTIMONIALS</a></li>
+					<li><a href="news.html">NEWS</a></li>
+					<li><a href="contact.html" class="menu-active disabled">CONTACT</a></li>
+					<li><a href="blog.html">BLOG</a></li>
+					<li><a href="http://www.google.com" target="_blank" class="external">LINK</a></li>
+				</ul>
+		</div>
+
+
+
+		<!-- SOCIAL -->
+		<div id="social">
+			<ul>
+				<li><a href="http://www.facebook.com/pezflash.previews" target="_blank" title="FACEBOOK"><img src="images/icon_facebook.png" alt="facebook"/></a></li>
+				<li><a href="http://www.twitter.com/pezflash" target="_blank" title="TWITTER"><img src="images/icon_twitter.png" alt="twitter"/></a></li>
+				<li><a href="http://www.pinterest.com/pezflash" target="_blank" title="PINTEREST"><img src="images/icon_pinterest.png" alt="pinterest"/></a></li>
+				<li><a href="http://www.vimeo.com/pezflash" target="_blank" title="VIMEO"><img src="images/icon_vimeo.png" alt="vimeo"/></a></li>
+			</ul>
+		</div>
+
+
+
+		<!-- MAIN CONTAINER -->
+		<div id="container">
+
+			<div id="contact">
+
+				<!-- MAP -->
+				<div class="map"></div>
+
+				<!-- LOCATION -->
+				<div class="location">
+					<span class="title">Location</span>
+					<span class="txt">325 Russell Street<br/>London City - England<br/>Tel. 503.515.8456<br/>M. 691.456.567<br/><a href="#" class="map-button">VIEW MAP</a></span>
+				</div>
+
+				<!-- LOCATION -->
+				<div class="email">
+					<span class="title">Keep in touch</span>
+					<span class="txt">KF&amp;KOI, Architects<br/><a href="mailto:info@kfkoi.com" target="_blank" class="mail-button">info@kfkoi.com</a></span>
+				</div>
+
+				<!-- NEWSLETTER -->
+				<div class="newsletter">
+					<span class="title">Subscribe to our Newsletter</span>
+					<form id="myForm" method="post" action="newsletter.php">
+						<input type="text" value="Your Email" id="email" name="email" class="fields" onfocus="if(this.value == 'Your Email') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Your Email';}"><br/>
+						<button type="submit" id="submit" name="submit" class="button"><span>SUBSCRIBE</span></button>
+						<div id="ajax_loader" class="loader_message"></div><div id="loader_icon" class="loader_icon"></div>
+					</form>
+				</div>
+
+			</div>
+
+		</div>
+		<!-- END CONTAINER -->
+
+		
+
+		<!-- FOOTER -->
+		<div id="footer">
+			<ul>
+				<li>Copyright KF&amp;KOI © 2013    - <a href="mailto:info@kfkoi.com">info@kfkoi.com</a></li>
+				<li><a href="legal.html" data-rel="prettyPopin">Legal</a></li>
+			</ul>
+		</div>
+
+
+
+		<!-- FULLSCREEN BUTTON -->
+		<div id="fullscreen">
+			<a href="#" title="GO FULLSCREEN"><img src="images/fullscreen_bt.png" alt="" /></a>
+		</div>
+
+
+	</div>
+
+</body>
+</html>

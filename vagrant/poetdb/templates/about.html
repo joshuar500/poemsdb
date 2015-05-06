@@ -1,0 +1,123 @@
+{% extends "includes/layout.html" %}
+{% block body %}
+
+<body>
+
+	<!-- CUSTOM SCRIPTS FOR THIS PAGE -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			//SCROLL TEXT
+			$('.scroll-text').mCustomScrollbar();
+
+			//IMAGE SMALL GALLERY
+			$('#about .slideshow').carouFredSel({
+					width: 340,
+					height: 230,
+					align: false,
+					direction: 'left',
+					items: 1,
+					swipe: true,
+					auto: false,
+					mousewheel: true,
+					scroll: {
+						fx: 'cover-fade',
+						easing:	'easeInOutQuart',
+						duration: 1000
+					},
+					prev: {
+						button: '#about .navi .prev',
+						key: "left"
+					},
+					next: {
+						button: '#about .navi .next',
+						key: "right"
+					}
+			});
+
+			//FADE IN DELAY ANIMATION
+			$('#about .preload').delay(1500).animate({ opacity:0 }, 500, 'easeOutQuad');
+			$('#about .slideshow').delay(1700).animate({ opacity:1 }, 1000, 'easeOutQuad');
+			$('#about .navi').delay(1900).animate({ opacity:1, top:245 }, 800, 'easeOutExpo');
+
+		});
+	</script>
+
+	<!-- FULLSCREEN HTML5 CONTAINER -->
+	<div id="canvas" class="canvas">
+
+		<!-- FULLSCREEN BACKGROUND -->
+		<div id="backg">
+			<img src="static/images/background.jpg" class="bg" alt="" />
+		</div>
+		
+		<!-- HEADER --> 
+		<div id="header">
+			<a href="index.html"><img src="static/images/logo.png" alt="" /></a>
+		</div>
+
+		<!-- MENU -->
+		{% include "includes/menu.html" %}
+
+		<!-- SOCIAL -->
+		{% include "includes/social.html" %}
+
+		<!-- MAIN CONTAINER -->
+		<div id="container">
+
+			<div id="about">
+
+				<!-- PRELOAD -->
+				<div class="preload">
+					<img src="static/images/preload2.gif" alt="" />
+				</div>
+
+				<!-- SLIDESHOW IMAGES -->
+				<div class="slideshow">
+					<img src="static/images/about/profile_image_01.jpg" alt="" />
+					<img src="static/images/about/profile_image_02.jpg" alt="" />
+					<img src="static/images/about/profile_image_03.jpg" alt="" />
+				</div>
+
+				<!-- SLIDESHOW NAVIGATION -->
+				<div class="navi">
+					<img src="static/images/prev_bt.png" alt="" class="prev" />
+					<img src="static/images/next_bt.png" alt="" class="next" />
+				</div>
+
+				<!-- TEXT -->
+				<img src="static/images/arrow.png" class="arrow" alt="" />
+				<div class="title">KF&amp;KOI is not all about building</div>
+				<div class="scroll-text">
+					<span>Sample of long text with auto-scroll. This a sample of profile description. Accepts any HTML tags like <strong>Bold</strong> and <em>Italics </em> text and also external links like <a href="#"><u>this.</u></a> You can also set the <span style="color:#999;">font color</span> and use other charsets, for example: ÁáàäçÑ...<br/><br/><span class="subtitle">TECHNICAL BACKGROUND</span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br/><br/><span class="subtitle">SOME OF OUR CLIENTS</span><img src="images/about/sample_logos.png" alt="" /><br/>Lorem cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br/><br/>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+				</div>
+
+				<!-- SUBLINKS -->
+				<div class="sublinks">
+					<ul>
+						<li><a href="team.html" class="sublink">OUR TEAM</a></li>
+						<li><a href="video_gallery.html" class="sublink">VIDEO REEL</a></li>
+						<li><a href="blog.html" class="sublink">BLOG</a></li>
+					</ul>
+				</div>
+			
+			</div>
+
+		</div>
+		<!-- END CONTAINER -->
+
+		<!-- BOTTOM CLAIM -->
+		<div id="bottom-claim">WE LOVE POETRY <a href="testimonials.html"><span style="color:#00ccff;">FRIENDS</span></a></div>
+
+		<!-- FOOTER -->
+		{% include "includes/footer.html" %}
+
+
+		<!-- FULLSCREEN BUTTON -->
+		{% include "includes/fullbtn.html" %}
+
+
+	</div>
+
+</body>
+{% endblock %}

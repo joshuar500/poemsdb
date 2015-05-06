@@ -1,0 +1,253 @@
+<!DOCTYPE HTML>
+<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]--> 
+<!--[if IE 9 ]>    <html lang="en" class="ie"> <![endif]--> 
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<title>Typeface - Minimal Html/jQuery template by pezflash</title>
+	<meta name="description" content="Html - jQuery template by pezflash"/>
+	<meta name="keywords" content=""/>
+	<meta name="robots" content="index, follow"/>
+	
+	<!-- CSS -->
+	<link rel="shortcut icon" href="images/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="css/reset.css" media="all">
+	<link rel="stylesheet" type="text/css" href="js/tipsy/tipsy.css" />
+	<link rel="stylesheet" type="text/css" href="js/prettyPopin/prettyPopin.css" />
+	<link rel="stylesheet" type="text/css" href="js/prettyPhoto/css/prettyPhoto.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="js/customScrollbar/jquery.mCustomScrollbar.css" />
+	<link rel="stylesheet" type="text/css" href="css/styles.css" />
+	
+	<!-- SCRIPTS -->
+	<script type="text/javascript" src="js/jquery/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery-ui-1.10.1.custom.min.js"></script>
+	<script type="text/javascript" src="js/screenfull/screenfull.js"></script>
+	<script type="text/javascript" src="js/tipsy/jquery.tipsy.js"></script>
+	<script type="text/javascript" src="js/prettyPopin/jquery.prettyPopin.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="js/prettyPhoto/js/jquery.prettyPhoto.js"></script>
+	<script type="text/javascript" src="js/customScrollbar/jquery.mCustomScrollbar.min.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery.waitforimages.js"></script>
+	<script type="text/javascript" src="js/mdetect/mdetect.js"></script>
+	<script type="text/javascript" src="js/configuration.js"></script>
+
+	<!-- CUSTOM SCRIPTS FOR THIS PAGE -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			//CACHE VARS
+			var titleString = "";
+			var imgs = $('#horizontal-gallery .images');
+			var bt = $('#horizontal-gallery .description .button');
+			var arrow = $('#horizontal-gallery .description .arrow');
+			var descrip = $('#horizontal-gallery .description .scroll-text');
+			var line = $('#horizontal-gallery .description .line');
+			var arrowYPos = parseInt(arrow.css('top'));
+
+			//CHECK STAGE WIDTH AND ADJUST PORTFOLIO
+			var galleryWidth = $(window).width() - 72;
+			imgs.css("width", galleryWidth);
+			
+			//DYNAMIC STAGE WIDTH
+			$(window).resize(function() {
+				galleryWidth = $(window).width() - 72;
+				imgs.css("width", galleryWidth);
+				imgs.mCustomScrollbar("update");
+			});
+
+			//PORTFOLIO DESCRIPTION BUTTON
+			bt.toggle(function() {
+
+				titleString = bt.text();
+				bt.text("˟ CLOSE");
+				arrow.stop(true, true).animate({ top: 35 }, 1000, 'easeInOutQuart');
+				line.stop(true, true).animate({ width: 320 }, 1000, 'easeInQuart');
+				descrip.css({ visibility:'visible' }).stop(true, true).delay(600).animate({ opacity: 1 }, 500, 'linear');
+				imgs.stop(true, true).animate({ left: 380, width: galleryWidth - 380 }, 1000, 'easeInOutQuart');
+
+			}, function() {
+
+				bt.text(titleString);
+				arrow.stop(true, true).animate({ top: arrowYPos }, 1000, 'easeInOutQuart');
+				line.stop(true, true).animate({ width: 0 }, 800, 'easeInQuart');
+				descrip.stop(true, true).animate({ opacity: 0 }, 500, 'linear', function() {
+					$(this).css({ visibility:'hidden' });
+				});
+				imgs.stop(true, true).animate({ left: 0, width: galleryWidth }, 1000, 'easeInOutQuart');
+
+			});
+
+			//PRETTYPHOTO LIGHTBOX GALLERY
+			$("a[rel^='prettyPhoto']").prettyPhoto({
+				social_tools:false,
+				theme:'typeface'	//CUSTOM THEME
+			});
+
+			//PRELOAD ALL IMAGES BEFORE SETTING UP THE SCROLLING FUNCTIONALITY
+			$('#canvas').waitForImages(function() {
+
+				//APPLY SCROLLBAR FOR GALLERY
+				imgs.mCustomScrollbar({
+					horizontalScroll: true,
+					autoDraggerLength: false,
+					scrollInertia: 1000,
+					mouseWheelPixels: 150,
+					advanced:{
+						autoExpandHorizontalScroll: false,
+						updateOnBrowserResize: true, 
+	    				updateOnContentResize: true
+					}
+				});
+
+				//SOME SCROLL ELEMENTS ADJUSTMENT
+				$('.mCSB_scrollTools').css("top", 0);
+				$('.mCSB_container').css("height", 535);
+
+				//ADD ARROW ON HORIZONTAL SCROLLBAR
+				$('.mCSB_horizontal .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar').append("<img src='js/customScrollbar/horz_arrow.png' style='position: relative; top: -1px;' />");
+
+				//DESCRIPTION SCROLLBAR
+				descrip.mCustomScrollbar({
+					autoDraggerLength: true
+				});
+
+				//FADE IN ANIMATION
+				$('#horizontal-gallery .preload').animate({ opacity:0 }, 500, 'easeOutQuad');
+				imgs.animate({ opacity:1 }, 1000, 'easeOutQuad');
+				$('#horizontal-gallery .description').animate({ opacity:1 }, 1000, 'easeOutQuad');
+
+				//TRIGGER CLICK EVENT TO DISPLAY SUBMENU
+				//DISABLE IF YOU DON'T WANT THE SUBMENU APPEAR BY DEFAULT
+				$('#menu #has-second').trigger('click');
+
+			});
+
+		});
+	</script>
+
+</head>
+
+
+<body>
+		
+	<!-- FULLSCREEN HTML5 CONTAINER -->
+	<div id="canvas" class="canvas">
+
+
+		<!-- FULLSCREEN BACKGROUND-->
+		<div id="backg">
+			<img src="images/background.jpg" class="bg" alt="" />
+		</div>
+		
+
+			
+		<!-- HEADER --> 
+		<div id="header">
+			<a href="index.html"><img src="images/logo.png" alt="" /></a>
+		</div>
+
+
+
+		<!-- MENU -->
+		<div id="menu">
+				<ul>
+					<li>
+						<a href="#" class="menu-active" id="has-second">GALLERIES</a>
+						<ul class="second-level">
+							<li><a href="horizontal_gallery.html" class="menu-active disabled">HORIZONTAL GALLERY</a></li>
+							<li><a href="fullscreen_gallery.html">FULLSCREEN GALLERY</a></li>
+							<li><a href="grid_gallery.html">GRID GALLERY</a></li>
+							<li><a href="slider_gallery.html">SLIDER GALLERY</a></li>
+							<li><a href="video_gallery.html">HTML5 VIDEO</a></li>
+							<li><a href="team.html">TEAM</a></li>
+						</ul>
+					</li>
+
+					<li><a href="about.html">ABOUT</a></li>
+					<li><a href="testimonials.html">TESTIMONIALS</a></li>
+					<li><a href="news.html">NEWS</a></li>
+					<li><a href="contact.html">CONTACT</a></li>
+					<li><a href="blog.html">BLOG</a></li>
+					<li><a href="http://www.google.com" target="_blank" class="external">LINK</a></li>
+				</ul>
+		</div>
+
+
+
+		<!-- SOCIAL -->
+		<div id="social">
+			<ul>
+				<li><a href="http://www.facebook.com/pezflash.previews" target="_blank" title="FACEBOOK"><img src="images/icon_facebook.png" alt="facebook"/></a></li>
+				<li><a href="http://www.twitter.com/pezflash" target="_blank" title="TWITTER"><img src="images/icon_twitter.png" alt="twitter"/></a></li>
+				<li><a href="http://www.pinterest.com/pezflash" target="_blank" title="PINTEREST"><img src="images/icon_pinterest.png" alt="pinterest"/></a></li>
+				<li><a href="http://www.vimeo.com/pezflash" target="_blank" title="VIMEO"><img src="images/icon_vimeo.png" alt="vimeo"/></a></li>
+			</ul>
+		</div>
+
+
+
+		<!-- MAIN CONTAINER -->
+		<div id="container">
+
+			<!-- HORIZONTAL GALLERY -->
+			<div id="horizontal-gallery">
+
+				<!-- PRELOAD -->
+				<div class="preload">
+					<img src="images/preload2.gif" alt="" />
+				</div>
+
+				<!-- IMAGES -->
+				<div class="images">
+					<div class="images_container">
+						<img src="images/galleries/horizontal/img_01.jpg" alt="" title="You can place here some image description." />
+						<a href="http://vimeo.com/27194571" data-rel="prettyPhoto"><img src="images/galleries/horizontal/img_02.jpg" alt="Video title" /></a>
+						<img src="images/galleries/horizontal/img_03.jpg" alt="" />
+						<img src="images/galleries/horizontal/img_04.jpg" alt="" />
+						<img src="images/galleries/horizontal/img_05.jpg" alt="" />
+						<img src="images/galleries/horizontal/img_06.jpg" alt="" />
+						<a href="http://vimeo.com/27194571" data-rel="prettyPhoto"><img src="images/galleries/horizontal/img_02.jpg" alt="Video title" /></a>
+						<img src="images/galleries/horizontal/img_01.jpg" alt="" />
+					</div>
+				</div>
+
+				<!-- DESCRIPTION -->
+				<div class="description">
+					<div class="arrow"><img src="images/arrow.png" alt="" /></div>
+					<div class="button">PROJECT DESCRIPTION</div>
+					<div class="scroll-text">
+						<span><span class="subtitle">HERE GOES THE PROJECT TITLE</span><br/>Sample of long text with auto-scroll. This a sample of project description. Accepts any HTML tags like <strong>Bold</strong> and <em>Italics </em> text and also external links like <a href="#"><u>this.</u></a> You can also set the <span style="color:#00ccff;">font color</span> and use other charsets, for example: ÁáàäçÑ...<br/><br/><span class="subtitle">CLIENT</span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.<br/><img src="images/galleries/logo_demo.png" alt="" /><br/><br/>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.<br/><br/>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br/><br/>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br/><br/>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br/><br/><span class="subtitle">CLIENT</span><span style="color:#444;"><strong>Envato networks, Australia</strong></span><br/>Themeforest Foundation</span>
+					</div>
+					<div class="line"></div>
+				</div>
+
+			</div>
+
+
+
+		</div>
+		<!-- END CONTAINER -->
+
+		
+
+		<!-- FOOTER -->
+		<div id="footer">
+			<ul>
+				<li>Copyright KF&amp;KOI © 2013    - <a href="mailto:info@kfkoi.com">info@kfkoi.com</a></li>
+				<li><a href="legal.html" data-rel="prettyPopin">Legal</a></li>
+			</ul>
+		</div>
+
+
+
+		<!-- FULLSCREEN BUTTON -->
+		<div id="fullscreen">
+			<a href="#" title="GO FULLSCREEN"><img src="images/fullscreen_bt.png" alt="" /></a>
+		</div>
+
+
+	</div>
+
+</body>
+</html>

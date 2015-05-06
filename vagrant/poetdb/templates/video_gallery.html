@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]--> 
+<!--[if IE 9 ]>    <html lang="en" class="ie"> <![endif]--> 
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<title>Typeface - Minimal Html/jQuery template by pezflash</title>
+	<meta name="description" content="Html - jQuery template by pezflash"/>
+	<meta name="keywords" content=""/>
+	<meta name="robots" content="index, follow"/>
+	
+	<!-- CSS -->
+	<link rel="shortcut icon" href="images/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="css/reset.css" media="all">
+	<link rel="stylesheet" type="text/css" href="js/tipsy/tipsy.css" />
+	<link rel="stylesheet" type="text/css" href="js/prettyPopin/prettyPopin.css" />
+	<link rel="stylesheet" type="text/css" href="js/video/video-js.css" />
+	<link rel="stylesheet" type="text/css" href="css/styles.css" />
+	
+	<!-- SCRIPTS -->
+	<script type="text/javascript" src="js/jquery/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery-ui-1.10.1.custom.min.js"></script>
+	<script type="text/javascript" src="js/screenfull/screenfull.js"></script>
+	<script type="text/javascript" src="js/tipsy/jquery.tipsy.js"></script>
+	<script type="text/javascript" src="js/prettyPopin/jquery.prettyPopin.js"></script>
+	<script type="text/javascript" src="js/video/video.js"></script>
+	<script type="text/javascript" src="js/video/playlist.js"></script>
+	<script type="text/javascript" src="js/mdetect/mdetect.js"></script>
+	<script type="text/javascript" src="js/configuration.js"></script>
+
+	<!-- CUSTOM SCRIPTS FOR THIS PAGE -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+	
+				//TRIGGER CLICK EVENT TO DISPLAY SUBMENU
+				//DISABLE IF YOU DON'T WANT THE SUBMENU APPEAR BY DEFAULT
+				$('#menu #has-second').trigger('click');
+	
+		});
+	</script>
+</head>
+
+
+<body>
+		
+	<!-- FULLSCREEN HTML5 CONTAINER -->
+	<div id="canvas" class="canvas">
+
+
+		<!-- FULLSCREEN BACKGROUND -->
+		<div id="backg">
+			<img src="images/background.jpg" class="bg" alt="" />
+		</div>
+		
+
+			
+		<!-- HEADER --> 
+		<div id="header">
+			<a href="index.html"><img src="images/logo.png" alt="" /></a>
+		</div>
+
+
+
+		<!-- MENU -->
+		<div id="menu">
+				<ul>
+					<li>
+						<a href="#" class="menu-active" id="has-second">GALLERIES</a>
+						<ul class="second-level">
+							<li><a href="horizontal_gallery.html">HORIZONTAL GALLERY</a></li>
+							<li><a href="fullscreen_gallery.html">FULLSCREEN GALLERY</a></li>
+							<li><a href="grid_gallery.html">GRID GALLERY</a></li>
+							<li><a href="slider_gallery.html">SLIDER GALLERY</a></li>
+							<li><a href="video_gallery.html" class="menu-active disabled">HTML5 VIDEO</a></li>
+							<li><a href="team.html">TEAM</a></li>
+						</ul>
+					</li>
+
+					<li><a href="about.html">ABOUT</a></li>
+					<li><a href="testimonials.html">TESTIMONIALS</a></li>
+					<li><a href="news.html">NEWS</a></li>
+					<li><a href="contact.html">CONTACT</a></li>
+					<li><a href="blog.html">BLOG</a></li>
+					<li><a href="http://www.google.com" target="_blank" class="external">LINK</a></li>
+				</ul>
+		</div>
+
+
+
+		<!-- SOCIAL -->
+		<div id="social">
+			<ul>
+				<li><a href="http://www.facebook.com/pezflash.previews" target="_blank" title="FACEBOOK"><img src="images/icon_facebook.png" alt="facebook"/></a></li>
+				<li><a href="http://www.twitter.com/pezflash" target="_blank" title="TWITTER"><img src="images/icon_twitter.png" alt="twitter"/></a></li>
+				<li><a href="http://www.pinterest.com/pezflash" target="_blank" title="PINTEREST"><img src="images/icon_pinterest.png" alt="pinterest"/></a></li>
+				<li><a href="http://www.vimeo.com/pezflash" target="_blank" title="VIMEO"><img src="images/icon_vimeo.png" alt="vimeo"/></a></li>
+			</ul>
+		</div>
+
+
+
+		<!-- MAIN CONTAINER -->
+		<div id="container">
+
+			<!-- VIDEO GALLERY --> 
+			<div id="video-gallery">
+
+				<!-- VIDEO PLAYER WITH PLAYLIST --> 
+				<div class="player">
+					<video id="vid1"
+				         class="video-js vjs-default-skin"
+				         controls
+				         preload="auto"
+				         width="600"
+				         height="338"
+				         poster="images/galleries/video/poster1.jpg"
+				         data-setup='{
+				           "playlist":[
+				              {"thumb_url":"images/galleries/video/thumb1.jpg",
+				               "poster_url":"",
+				               "sources":[
+				                 {"src":"images/galleries/video/sample_vid.mp4",
+				                  "type":"video/mp4",
+				                  "media":"",
+				                  "title":""},
+				                 {"src":"images/galleries/video/sample_vid.ogv",
+				                  "type":"video/mp4",
+				                  "media":"",
+				                  "title":""
+				              	 }
+				               ]
+				              },
+				              {"thumb_url":"images/galleries/video/thumb2.jpg",
+				               "poster_url":"",
+				               "sources":[
+				                 {"src":"images/galleries/video/sample_vid.mp4",
+				                  "type":"video/mp4",
+				                  "media":"",
+				                  "title":""},
+				                 {"src":"images/galleries/video/sample_vid.ogv",
+				                  "type":"video/mp4",
+				                  "media":"",
+				                  "title":""
+				              	 }
+				                ]
+				              },
+				              {"thumb_url":"images/galleries/video/thumb3.jpg",
+				               "poster_url":"",
+				               "sources":[
+				                 {"src":"images/galleries/video/sample_vid.mp4",
+				                  "type":"video/mp4",
+				                  "media":"",
+				                  "title":""},
+				                 {"src":"images/galleries/video/sample_vid.ogv",
+				                  "type":"video/mp4",
+				                  "media":"",
+				                  "title":""
+				              	 }
+				                ]
+				              },
+				              {"thumb_url":"images/galleries/video/thumb4.jpg",
+				               "poster_url":"",
+				               "sources":[
+				                 {"src":"images/galleries/video/sample_vid.mp4",
+				                  "type":"video/mp4",
+				                  "media":"",
+				                  "title":""},
+				                 {"src":"images/galleries/video/sample_vid.ogv",
+				                  "type":"video/mp4",
+				                  "media":"",
+				                  "title":""
+				              	 }
+				                ]
+				              }
+				            ]
+				          }'>
+				    <source src="images/galleries/video/sample_vid.mp4" type='video/mp4'/>
+				  </video>
+				</div>
+
+				<div class="description">
+					<p>This is the gallery description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+				</div>
+
+			</div>
+
+
+
+		</div>
+		<!-- END CONTAINER -->
+
+		
+
+		<!-- FOOTER -->
+		<div id="footer">
+			<ul>
+				<li>Copyright KF&amp;KOI © 2013    - <a href="mailto:info@kfkoi.com">info@kfkoi.com</a></li>
+				<li><a href="legal.html" data-rel="prettyPopin">Legal</a></li>
+			</ul>
+		</div>
+
+
+
+		<!-- FULLSCREEN BUTTON -->
+		<div id="fullscreen">
+			<a href="#" title="GO FULLSCREEN"><img src="images/fullscreen_bt.png" alt="" /></a>
+		</div>
+
+
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE HTML>
+<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]--> 
+<!--[if IE 9 ]>    <html lang="en" class="ie"> <![endif]--> 
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<title>Typeface - Minimal Html/jQuery template by pezflash</title>
+	<meta name="description" content="Html - jQuery template by pezflash"/>
+	<meta name="keywords" content=""/>
+	<meta name="robots" content="index, follow"/>
+	
+	<!-- CSS -->
+	<link rel="shortcut icon" href="images/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="css/reset.css" media="all">
+	<link rel="stylesheet" type="text/css" href="js/tipsy/tipsy.css" />
+	<link rel="stylesheet" type="text/css" href="js/prettyPopin/prettyPopin.css" />
+	<link rel="stylesheet" type="text/css" href="js/customScrollbar/jquery.mCustomScrollbar.css" />
+	<link rel="stylesheet" type="text/css" href="css/styles.css" />
+	
+	<!-- SCRIPTS -->
+	<script type="text/javascript" src="js/jquery/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery-ui-1.10.1.custom.min.js"></script>
+	<script type="text/javascript" src="js/screenfull/screenfull.js"></script>
+	<script type="text/javascript" src="js/tipsy/jquery.tipsy.js"></script>
+	<script type="text/javascript" src="js/prettyPopin/jquery.prettyPopin.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="js/customScrollbar/jquery.mCustomScrollbar.min.js"></script>
+	<script type="text/javascript" src="js/team/jquery.teamslider.js"></script>
+	<script type="text/javascript" src="js/mdetect/mdetect.js"></script>
+	<script type="text/javascript" src="js/configuration.js"></script>
+
+	<!-- CUSTOM SCRIPTS FOR THIS PAGE -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			//ADD FALSE LAYER TO PREVENT PROFILE CLICKING (CRAPPY IE!)
+			$('.item').prepend('<img src="images/team/cover.png" class="cover" alt="" />');
+
+			//ADD SCROLL TO PROFILE TEXTS
+			$('.scroll-text').mCustomScrollbar({mouseWheel: false});
+
+
+
+			//ADD CLOSE BUTTON TOO ALL PROFILES
+			$('.content').prepend('<a href="#" class="close" title="Close"></a>');
+			$('.close').tipsy({ gravity: 'e', fade: true, offset: 3 });
+
+			//ITEM ROLLOVER
+			$('#team .members .item .profile').hover(
+				function () {
+					$(this).children('img').stop(true, true).animate({opacity: 1}, 400, 'linear');
+				},
+				function () {
+					$(this).children('img').stop(true, true).animate({opacity: 0.7}, 600);
+				}
+			);
+			
+			//TEAM SLIDER
+			$('#team').teamslider({
+			    sliderSpeed: 500,				// speed for the sliding animation
+			    sliderEasing: 'easeOutExpo',	// easing for the sliding animation
+			    itemSpeed: 500,					// speed for the item animation (open / close)
+			    itemEasing: 'easeOutExpo',		// easing for the item animation (open / close)
+			    scroll: 1 						// number of items to scroll at a time
+			});
+
+			//TRIGGER CLICK EVENT TO DISPLAY SUBMENU
+			//DISABLE IF YOU DON'T WANT THE SUBMENU APPEAR BY DEFAULT
+			$('#menu #has-second').trigger('click');
+
+		});
+	</script>
+
+</head>
+
+
+<body>
+		
+	<!-- FULLSCREEN HTML5 CONTAINER -->
+	<div id="canvas" class="canvas">
+
+
+		<!-- FULLSCREEN BACKGROUND -->
+		<div id="backg">
+			<img src="images/background.jpg" class="bg" alt="" />
+		</div>
+		
+
+			
+		<!-- HEADER --> 
+		<div id="header">
+			<a href="index.html"><img src="images/logo.png" alt="" /></a>
+		</div>
+
+
+
+		<!-- MENU -->
+		<div id="menu">
+				<ul>
+					<li>
+						<a href="#" class="menu-active" id="has-second">GALLERIES</a>
+						<ul class="second-level">
+							<li><a href="horizontal_gallery.html">HORIZONTAL GALLERY</a></li>
+							<li><a href="fullscreen_gallery.html">FULLSCREEN GALLERY</a></li>
+							<li><a href="grid_gallery.html">GRID GALLERY</a></li>
+							<li><a href="slider_gallery.html">SLIDER GALLERY</a></li>
+							<li><a href="video_gallery.html">HTML5 VIDEO</a></li>
+							<li><a href="team.html" class="menu-active disabled">TEAM</a></li>
+						</ul>
+					</li>
+
+					<li><a href="about.html">ABOUT</a></li>
+					<li><a href="testimonials.html">TESTIMONIALS</a></li>
+					<li><a href="news.html">NEWS</a></li>
+					<li><a href="contact.html">CONTACT</a></li>
+					<li><a href="blog.html">BLOG</a></li>
+					<li><a href="http://www.google.com" target="_blank" class="external">LINK</a></li>
+				</ul>
+		</div>
+
+
+
+		<!-- SOCIAL -->
+		<div id="social">
+			<ul>
+				<li><a href="http://www.facebook.com/pezflash.previews" target="_blank" title="FACEBOOK"><img src="images/icon_facebook.png" alt="facebook"/></a></li>
+				<li><a href="http://www.twitter.com/pezflash" target="_blank" title="TWITTER"><img src="images/icon_twitter.png" alt="twitter"/></a></li>
+				<li><a href="http://www.pinterest.com/pezflash" target="_blank" title="PINTEREST"><img src="images/icon_pinterest.png" alt="pinterest"/></a></li>
+				<li><a href="http://www.vimeo.com/pezflash" target="_blank" title="VIMEO"><img src="images/icon_vimeo.png" alt="vimeo"/></a></li>
+			</ul>
+		</div>
+
+
+
+		<!-- MAIN CONTAINER -->
+		<div id="container">
+
+			<!-- TEAM GALLERY -->
+			<div id="team">
+
+				<!-- CLAIM -->
+				<div class="claim">YOU WILL PROBABLY WANT TO KNOW MORE<br/><a href="about.html"><span style="color:#333;">ABOUT US</span></a>, SO MEET THE TEAM</div>
+
+				<!-- DIVIDER -->
+				<div class="line"></div>
+
+				<!-- ARROW NAVIGATION -->
+				<div class="navi">
+					<img src="images/prev_bt.png" alt="" class="prev" />
+					<img src="images/next_bt.png" alt="" class="next" />
+				</div>
+
+				<!-- MEMBERS -->
+				<div class="members">
+
+					<!-- MEMBER ITEM -->
+					<div class="item">
+						<div class="profile">
+							<img src="images/team/member_1.png" alt=""/>
+							<h3>KF&amp;KOI</h3>
+							<h4>CEO - Lead Architect</h4>
+						</div>
+						<div class="content">
+								<img src="images/arrow.png" class="arrow" alt="" />
+								<div class="scroll-text">
+										<span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br /><br />Lorem cupidatat non proident, sunt in culpa qui officia exercitation ullamco laboris. Lorem ipsum dolor sit amet, consectetur adipisicing elit, Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud.deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br/><br/>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim veniam, quis nostrud.deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</span>
+								</div>
+								<div class="sublinks">
+									<ul>
+										<li><a href="#" class="sublink">Email</a></li>
+										<li><a href="#" class="sublink">Linkedin</a></li>
+										<li><a href="#" class="sublink">Blog</a></li>
+									</ul>
+								</div>
+						</div>
+					</div>
+
+					<!-- MEMBER ITEM -->
+					<div class="item">
+						<div class="profile">
+							<img src="images/team/member_2.png" alt=""/>
+							<h3>Christine Summa</h3>
+							<h4>Engineer Director</h4>
+						</div>
+						<div class="content">
+								<img src="images/arrow.png" class="arrow" alt="" />
+								<div class="scroll-text">
+										<span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br /><br />Lorem cupidatat non proident, sunt in culpa qui officia exercitation ullamco laboris. Lorem ipsum dolor sit amet, consectetur adipisicing elit, Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span>
+								</div>
+								<div class="sublinks">
+									<ul>
+										<li><a href="#" class="sublink">Email</a></li>
+										<li><a href="#" class="sublink">Linkedin</a></li>
+										<li><a href="#" class="sublink">Blog</a></li>
+									</ul>
+							</div>
+						</div>
+					</div>
+
+					<!-- MEMBER ITEM -->
+					<div class="item">
+						<div class="profile">
+							<img src="images/team/member_3.png" alt=""/>
+							<h3>Mickey Shaun</h3>
+							<h4>Senior Architect</h4>
+						</div>
+						<div class="content">
+								<img src="images/arrow.png" class="arrow" alt="" />
+								<div class="scroll-text">
+										<span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br /><br />Lorem cupidatat non proident, sunt in culpa qui officia exercitation ullamco laboris. Lorem ipsum dolor sit amet, consectetur adipisicing elit, Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud.deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br/><br/>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim veniam, quis nostrud.deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</span>
+								</div>
+								<div class="sublinks">
+									<ul>
+										<li><a href="#" class="sublink">Email</a></li>
+										<li><a href="#" class="sublink">Linkedin</a></li>
+										<li><a href="#" class="sublink">Blog</a></li>
+									</ul>
+							</div>
+						</div>
+					</div>
+
+					<!-- MEMBER ITEM -->
+					<div class="item">
+						<div class="profile">
+							<img src="images/team/member_4.png" alt=""/>
+							<h3>Rob McAllister</h3>
+							<h4>Landscape painter</h4>
+						</div>
+						<div class="content">
+								<img src="images/arrow.png" class="arrow" alt="" />
+								<div class="scroll-text">
+										<span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br /><br />Lorem cupidatat non proident, sunt in culpa qui officia exercitation ullamco laboris. Lorem ipsum dolor sit amet, consectetur adipisicing elit, Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud.deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br/><br/>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim veniam, quis nostrud.deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</span>
+								</div>
+								<div class="sublinks">
+									<ul>
+										<li><a href="#" class="sublink">Email</a></li>
+										<li><a href="#" class="sublink">Linkedin</a></li>
+										<li><a href="#" class="sublink">Blog</a></li>
+									</ul>
+							</div>
+						</div>
+					</div>
+
+					<!-- MEMBER ITEM -->
+					<div class="item">
+						<div class="profile">
+							<img src="images/team/member_5.png" alt=""/>
+							<h3>Caroline Battly</h3>
+							<h4>Marketing Director</h4>
+						</div>
+						<div class="content">
+								<img src="images/arrow.png" class="arrow" alt="" />
+								<div class="scroll-text">
+										<span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br /><br />Lorem cupidatat non proident, sunt in culpa qui officia exercitation ullamco laboris. Lorem ipsum dolor sit amet, consectetur adipisicing elit, Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud.deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+								</div>
+								<div class="sublinks">
+									<ul>
+										<li><a href="#" class="sublink">Email</a></li>
+										<li><a href="#" class="sublink">Linkedin</a></li>
+										<li><a href="#" class="sublink">Blog</a></li>
+									</ul>
+							</div>
+						</div>
+					</div>
+
+					<!-- MEMBER ITEM -->
+					<div class="item">
+						<div class="profile">
+							<img src="images/team/member_6.png" alt=""/>
+							<h3>Paul Griffins</h3>
+							<h4>Project Manager</h4>
+						</div>
+						<div class="content">
+								<img src="images/arrow.png" class="arrow" alt="" />
+								<div class="scroll-text">
+										<span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br /><br />Lorem cupidatat non proident, sunt in culpa qui officia exercitation ullamco laboris. Lorem ipsum dolor sit amet, consectetur adipisicing elit, Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud.deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br/><br/>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim veniam, quis nostrud.deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</span>
+								</div>
+								<div class="sublinks">
+									<ul>
+										<li><a href="#" class="sublink">Email</a></li>
+										<li><a href="#" class="sublink">Linkedin</a></li>
+										<li><a href="#" class="sublink">Blog</a></li>
+									</ul>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				
+			</div>
+
+		</div>
+		<!-- END CONTAINER -->
+
+		
+
+		<!-- FOOTER -->
+		<div id="footer">
+			<ul>
+				<li>Copyright KF&amp;KOI © 2013    - <a href="mailto:info@kfkoi.com">info@kfkoi.com</a></li>
+				<li><a href="legal.html" data-rel="prettyPopin">Legal</a></li>
+			</ul>
+		</div>
+
+
+
+		<!-- FULLSCREEN BUTTON -->
+		<div id="fullscreen">
+			<a href="#" title="GO FULLSCREEN"><img src="images/fullscreen_bt.png" alt="" /></a>
+		</div>
+
+
+	</div>
+
+</body>
+</html>

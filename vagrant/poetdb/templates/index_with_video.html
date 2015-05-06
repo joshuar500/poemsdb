@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]--> 
+<!--[if IE 9 ]>    <html lang="en" class="ie"> <![endif]--> 
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<title>Typeface - Minimal Html/jQuery template by pezflash</title>
+	<meta name="description" content="Html - jQuery template by pezflash"/>
+	<meta name="keywords" content=""/>
+	<meta name="robots" content="index, follow"/>
+	
+	<!-- CSS -->
+	<link rel="shortcut icon" href="images/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="css/reset.css" media="all">
+	<link rel="stylesheet" type="text/css" href="js/tipsy/tipsy.css" />
+	<link rel="stylesheet" type="text/css" href="js/prettyPopin/prettyPopin.css" />
+	<link rel="stylesheet" type="text/css" href="css/styles.css" />
+	
+	<!-- SCRIPTS -->
+	<script type="text/javascript" src="js/jquery/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery-ui-1.10.1.custom.min.js"></script>	
+	<script type="text/javascript" src="js/tipsy/jquery.tipsy.js"></script>
+	<script type="text/javascript" src="js/prettyPopin/jquery.prettyPopin.js"></script>
+	<script type="text/javascript" src="js/video/jquery.videobackground.js"></script>
+	<script type="text/javascript" src="js/mdetect/mdetect.js"></script>
+	<script type="text/javascript" src="js/configuration.js"></script>
+
+	<!-- CUSTOM SCRIPTS FOR THIS PAGE -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+				$('#video-background').videobackground({
+					//VIDEO SOURCE
+					videoSource: [
+						['images/galleries/background-video/video-sample.mp4', 'video/mp4'],
+						['images/galleries/background-video/video-sample.webm', 'video/webm'],
+						['images/galleries/background-video/video-sample.ogv', 'video/ogg']
+					],
+
+					//POSTER IMAGE (WILL DISPLAY ON INCOMPATIBLE BROWSERS AND WHILE VIDEO LOADING)
+					poster: 'images/galleries/background-video/video-sample-poster.jpg',
+
+					//VIDEO CONTROL
+					controlPosition: '#video-control',
+
+					//LOOP (true/false)
+					loop: true,
+
+					//LOAD YOUR CUSTOM SETTINGS ONCE LOADED
+					//FOR MORE SETTINGS AVAILABLE CHECK jquery.videobackground.js (line 396)
+					loadedCallback: function() {
+						//$(this).videobackground('mute');	//NOTE: AUTO-MUTE DOESN'T WORK ON FIREFOX
+					}
+				});
+
+		});
+	</script>
+
+</head>
+
+<body>
+
+	<!-- FULLSCREEN HTML5 CONTAINER -->
+	<div id="canvas" class="canvas">
+
+
+		<!-- VIDEO BACKGROUND & CONTROL --> 
+		<div id="video-background"></div>
+		<div id="video-control"></div>
+
+			
+
+		<!-- HEADER --> 
+		<div id="header">
+			<img src="images/logo.png" alt="" />
+		</div>
+
+
+
+		<!-- MAIN CONTAINER -->
+		<div id="container">
+
+			<!--
+			REQUIRED DIV ID FOR FADING NAVIGATION. DON'T DELETE!
+			 -->
+
+		</div>	
+		<!-- END CONTAINER -->
+
+
+
+		<!-- MENU -->
+		<div id="menu">
+				<ul>
+					<li>
+						<a href="#">GALLERIES</a>
+						<ul class="second-level">
+							<li><a href="horizontal_gallery.html">HORIZONTAL GALLERY</a></li>
+							<li><a href="fullscreen_gallery.html">FULLSCREEN GALLERY</a></li>
+							<li><a href="grid_gallery.html">GRID GALLERY</a></li>
+							<li><a href="slider_gallery.html">SLIDER GALLERY</a></li>
+							<li><a href="video_gallery.html">HTML5 VIDEO</a></li>
+							<li><a href="team.html">TEAM</a></li>
+						</ul>
+					</li>
+
+					<li><a href="about.html">ABOUT</a></li>
+					<li><a href="testimonials.html">TESTIMONIALS</a></li>
+					<li><a href="news.html">NEWS</a></li>
+					<li><a href="contact.html">CONTACT</a></li>
+					<li><a href="blog.html">BLOG</a></li>
+					<li><a href="http://www.google.com" target="_blank" class="external">LINK</a></li>
+				</ul>
+		</div>
+
+
+
+		<!-- SOCIAL -->
+		<div id="social">
+			<ul>
+				<li><a href="http://www.facebook.com/pezflash.previews" target="_blank" title="FACEBOOK"><img src="images/icon_facebook.png" alt="facebook"/></a></li>
+				<li><a href="http://www.twitter.com/pezflash" target="_blank" title="TWITTER"><img src="images/icon_twitter.png" alt="twitter"/></a></li>
+				<li><a href="http://www.pinterest.com/pezflash" target="_blank" title="PINTEREST"><img src="images/icon_pinterest.png" alt="pinterest"/></a></li>
+				<li><a href="http://www.vimeo.com/pezflash" target="_blank" title="VIMEO"><img src="images/icon_vimeo.png" alt="vimeo"/></a></li>
+			</ul>
+		</div>
+
+		
+
+		<!-- FOOTER -->
+		<div id="footer">
+			<ul>
+				<li>Copyright KF&amp;KOI © 2013    - <a href="mailto:info@kfkoi.com">info@kfkoi.com</a></li>
+				<li><a href="legal.html" data-rel="prettyPopin">Legal</a></li>
+			</ul>
+		</div>
+
+
+
+		<!-- FULLSCREEN BUTTON 
+		<div id="fullscreen">
+			<a href="#" title="GO FULLSCREEN"><img src="images/fullscreen_bt.png" alt="" /></a>
+		</div>
+		-->
+
+
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]--> 
+<!--[if IE 9 ]>    <html lang="en" class="ie"> <![endif]--> 
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<title>Typeface - Minimal Html/jQuery template by pezflash</title>
+	<meta name="description" content="Html - jQuery template by pezflash"/>
+	<meta name="keywords" content=""/>
+	<meta name="robots" content="index, follow"/>
+
+	<!-- CSS -->
+	<link rel="shortcut icon" href="images/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="css/reset.css" media="all">
+	<link rel="stylesheet" type="text/css" href="js/tipsy/tipsy.css" />
+	<link rel="stylesheet" type="text/css" href="js/prettyPopin/prettyPopin.css" />
+	<link rel="stylesheet" type="text/css" href="js/vegas/jquery.vegas.css" />
+	<link rel="stylesheet" type="text/css" href="css/styles.css" />
+	
+	<!-- SCRIPTS -->
+	<script type="text/javascript" src="js/jquery/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery-ui-1.10.1.custom.min.js"></script>
+	<script type="text/javascript" src="js/screenfull/screenfull.js"></script>
+	<script type="text/javascript" src="js/tipsy/jquery.tipsy.js"></script>
+	<script type="text/javascript" src="js/prettyPopin/jquery.prettyPopin.js"></script>
+	<script type="text/javascript" src="js/vegas/jquery.vegas.js"></script>
+	<script type="text/javascript" src="js/vegas/vegas.fullscreen.config.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery.waitforimages.js"></script>
+	<script type="text/javascript" src="js/mdetect/mdetect.js"></script>
+	<script type="text/javascript" src="js/configuration.js"></script>
+
+	<!-- FOR FULLSCREEN GALLERY CONFIGURATION CHECK js/vegas/vegas.fullscreen.config.js -->
+
+	<!-- CUSTOM SCRIPTS FOR THIS PAGE -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			//PLACE HERE YOUR CUSTOM SCRIPTS
+			//ALL THE FULLSCREEN GALLERY CONFIGURATION SCRIPTS ARE LOCATED ON
+			//js/vegas/vegas.fullscreen.config.js
+
+			//PRELOAD ALL IMAGES BEFORE SETTING UP THE CAROUSEL
+			$('#canvas').waitForImages(function() {
+
+				//CACHE VARS
+				var thumbs = $('#fullscreen-gallery .thumbs');
+				var navi = $('#fullscreen-gallery .navi');
+				var th = $('#fullscreen-gallery .navi .th');
+				var open = false;
+				var thumbHPos, naviHPos, winWidth;
+
+				//CHECK STAGE WIDTH AND POSITIONATE NAVIGATION & THUMBS
+				winWidth = $(window).width();
+				naviHPos = (winWidth / 2) - (navi.width() / 2);
+				navi.css('left', naviHPos);
+				navi.stop(true,true).animate({ bottom: 50 }, 1000, 'easeInOutQuart');
+				thumbHPos = (winWidth / 2) - (thumbs.width() / 2);
+				thumbs.css('left', thumbHPos);
+
+				th.click(function() {
+					if (!open) {
+						open = true;
+						th.attr('title', 'Hide thumbnails');
+						thumbs.stop(true,true).animate({ opacity: 1, bottom: 100 }, 1000, 'easeOutQuart');
+					} else {
+						open = false;
+						th.attr('title', 'Show thumbnails');
+						thumbs.stop(true,true).animate({ opacity: 0, bottom: -100 }, 1000, 'easeInOutQuart');
+					}
+				});
+
+				$(window).resize(function() {
+					winWidth = $(window).width();
+					thumbHPos = (winWidth / 2) - (thumbs.width() / 2);
+					thumbs.css('left', thumbHPos);
+
+					naviHPos = (winWidth / 2) - (navi.width() / 2);
+					navi.css('left', naviHPos);
+				});
+
+				//TIPSY TOOLTIPS
+				$('#slideshow').tipsy({ gravity: 's', fade: true, offset: 5 });
+				$('#fullscreen-gallery .navi .prev').tipsy({ gravity: 's', fade: true, offset: 5 });
+				$('#fullscreen-gallery .navi .next').tipsy({ gravity: 's', fade: true, offset: 5 });
+				th.tipsy({ gravity: 's', fade: true, offset: 5 });
+
+				//TRIGGER CLICK EVENT TO DISPLAY SUBMENU
+				//DISABLE IF YOU DON'T WANT THE SUBMENU APPEAR BY DEFAULT
+				$('#menu #has-second').trigger('click');
+
+			});
+
+		});
+	</script>
+
+
+</head>
+
+
+<body>
+
+	<!-- FULLSCREEN HTML5 CONTAINER -->
+	<div id="canvas" class="canvas">
+
+
+			
+		<!-- HEADER --> 
+		<div id="header">
+			<a href="index.html"><img src="images/logo.png" alt="" /></a>
+		</div>
+
+
+
+		<!-- MENU -->
+		<div id="menu">
+				<ul>
+					<li>
+						<a href="#" class="menu-active" id="has-second">GALLERIES</a>
+						<ul class="second-level">
+							<li><a href="horizontal_gallery.html">HORIZONTAL GALLERY</a></li>
+							<li><a href="fullscreen_gallery.html" class="menu-active disabled">FULLSCREEN GALLERY</a></li>
+							<li><a href="grid_gallery.html">GRID GALLERY</a></li>
+							<li><a href="slider_gallery.html">SLIDER GALLERY</a></li>
+							<li><a href="video_gallery.html">HTML5 VIDEO</a></li>
+							<li><a href="team.html">TEAM</a></li>
+						</ul>
+					</li>
+
+					<li><a href="about.html">ABOUT</a></li>
+					<li><a href="testimonials.html">TESTIMONIALS</a></li>
+					<li><a href="news.html">NEWS</a></li>
+					<li><a href="contact.html">CONTACT</a></li>
+					<li><a href="blog.html">BLOG</a></li>
+					<li><a href="http://www.google.com" target="_blank" class="external">LINK</a></li>
+				</ul>
+		</div>
+
+
+
+		<!-- SOCIAL -->
+		<div id="social">
+			<ul>
+				<li><a href="http://www.facebook.com/pezflash.previews" target="_blank" title="FACEBOOK"><img src="images/icon_facebook.png" alt="facebook"/></a></li>
+				<li><a href="http://www.twitter.com/pezflash" target="_blank" title="TWITTER"><img src="images/icon_twitter.png" alt="twitter"/></a></li>
+				<li><a href="http://www.pinterest.com/pezflash" target="_blank" title="PINTEREST"><img src="images/icon_pinterest.png" alt="pinterest"/></a></li>
+				<li><a href="http://www.vimeo.com/pezflash" target="_blank" title="VIMEO"><img src="images/icon_vimeo.png" alt="vimeo"/></a></li>
+			</ul>
+		</div>
+
+
+
+		<!-- MAIN CONTAINER -->
+		<div id="container">
+
+			<!-- FULLSCREEN GALLERY --> 
+			<div id="fullscreen-gallery">
+
+				<!-- ITEMS --> 
+				<div class="thumbs">
+					<ul>
+						<li><a href="images/galleries/fullscreen/background_1.jpg" data-valign="top" data-align="right"><img src="images/galleries/fullscreen/thumbnail_1.jpg" alt="thumbnail"/></a></li>
+						<li><a href="images/galleries/fullscreen/background_2.jpg"><img src="images/galleries/fullscreen/thumbnail_2.jpg" alt="thumbnail"/></a></li>
+						<li><a href="images/galleries/fullscreen/background_3.jpg"><img src="images/galleries/fullscreen/thumbnail_3.jpg" alt="thumbnail"/></a></li>
+						<li><a href="images/galleries/fullscreen/background_4.jpg"><img src="images/galleries/fullscreen/thumbnail_4.jpg" alt="thumbnail"/></a></li>
+						<li><a href="images/galleries/fullscreen/background_5.jpg" data-align="left"><img src="images/galleries/fullscreen/thumbnail_5.jpg" alt="thumbnail"/></a></li>
+						<li><a href="images/galleries/fullscreen/background_6.jpg"><img src="images/galleries/fullscreen/thumbnail_6.jpg" alt="thumbnail"/></a></li>
+						<li><a href="images/galleries/fullscreen/background_7.jpg" data-valign="top"><img src="images/galleries/fullscreen/thumbnail_7.jpg" alt="thumbnail"/></a></li>
+					</ul>
+				</div>
+
+				<!-- NAVIGATION -->
+				<div class="navi">
+					<img src="images/galleries/fullscreen/prev_bt.png" alt="" class="prev" title="Previous" />
+					<img src="images/galleries/fullscreen/next_bt.png" alt="" class="next" title="Next" />
+					<img src="images/galleries/fullscreen/play_bt.png" alt="" id="slideshow" class="playpause" title="Play slideshow" />
+					<img src="images/galleries/fullscreen/thumbs_bt.png" alt="" class="th" title="Show thumbnails" />
+				</div>
+			
+			</div>
+
+
+
+		</div>
+		<!-- END CONTAINER -->
+
+		
+
+		<!-- FOOTER -->
+		<div id="footer">
+			<ul>
+				<li>Copyright KF&amp;KOI © 2013    - <a href="mailto:info@kfkoi.com">info@kfkoi.com</a></li>
+				<li><a href="legal.html" data-rel="prettyPopin">Legal</a></li>
+			</ul>
+		</div>
+
+
+
+		<!-- FULLSCREEN BUTTON -->
+		<div id="fullscreen">
+			<a href="#" title="GO FULLSCREEN"><img src="images/fullscreen_bt.png" alt="" /></a>
+		</div>
+
+
+	</div>
+
+
+</body>
+</html>

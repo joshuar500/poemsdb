@@ -1,0 +1,54 @@
+{% extends "includes/layout.html" %}
+{% block body %}
+
+<body>
+
+	<!-- FULLSCREEN HTML5 CONTAINER -->
+	<div id="canvas" class="canvas">
+
+
+		<!-- FULLSCREEN BACKGROUND -->
+		<div id="backg">
+			<img src="static/images/background.jpg" class="bg" alt="" />
+		</div>
+		
+
+			
+		<!-- HEADER --> 
+		<div id="header">
+			<img src="static/images/logo.png" alt="" />
+		</div>
+
+
+
+		<!-- MENU -->
+		{% include "includes/menu.html" %}
+
+		<!-- SOCIAL -->
+		{% include "includes/social.html" %}
+
+
+		<!-- MAIN CONTAINER -->
+		<div id="container">
+
+			<!--
+			RANDOM POEM SHOULD GO HERE
+			 -->
+
+		</div>	
+		<!-- END CONTAINER -->
+
+		
+
+		<!-- FOOTER -->
+		{% include "includes/footer.html" %}
+
+
+		<!-- FULLSCREEN BUTTON -->
+		{% include "includes/fullbtn.html" %}
+
+
+	</div>
+
+</body>
+{% endblock %}

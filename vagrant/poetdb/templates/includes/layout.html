@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]--> 
+<!--[if IE 9 ]>    <html lang="en" class="ie"> <![endif]--> 
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <title>poetdb.com - A Poetry Database</title>
+    <meta name="description" content="A Poetry Database created by Joshua Rincon"/>
+    <meta name="keywords" content=""/>
+    <meta name="robots" content="index, follow"/>
+    
+    <!-- CSS -->
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css') }}" media="all">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='js/tipsy/tipsy.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='js/prettyPopin/prettyPopin.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='js/customScrollbar/jquery.mCustomScrollbar.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}" />
+    
+    <!-- SCRIPTS -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery/jquery-1.8.0.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery/jquery-ui-1.10.1.custom.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/screenfull/screenfull.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/tipsy/jquery.tipsy.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/prettyPopin/jquery.prettyPopin.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/mdetect/mdetect.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/configuration.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/customScrollbar/jquery.mCustomScrollbar.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/carouFredSel/jquery.carouFredSel-6.2.0-packed.js') }}"></script>
+    <script type="text/javascript">
+      var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+    </script>
+
+</head>
+
+{% block body %}{% endblock %}
+</html>

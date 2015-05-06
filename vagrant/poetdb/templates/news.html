@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]--> 
+<!--[if IE 9 ]>    <html lang="en" class="ie"> <![endif]--> 
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<title>Typeface - Minimal Html/jQuery template by pezflash</title>
+	<meta name="description" content="Html - jQuery template by pezflash"/>
+	<meta name="keywords" content=""/>
+	<meta name="robots" content="index, follow"/>
+	
+	<!-- CSS -->
+	<link rel="shortcut icon" href="images/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="css/reset.css" media="all">
+	<link rel="stylesheet" type="text/css" href="js/tipsy/tipsy.css" />
+	<link rel="stylesheet" type="text/css" href="js/prettyPopin/prettyPopin.css" />
+	<link rel="stylesheet" type="text/css" href="css/styles.css" />
+	
+	<!-- SCRIPTS -->
+	<script type="text/javascript" src="js/jquery/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery-ui-1.10.1.custom.min.js"></script>
+	<script type="text/javascript" src="js/screenfull/screenfull.js"></script>
+	<script type="text/javascript" src="js/tipsy/jquery.tipsy.js"></script>
+	<script type="text/javascript" src="js/prettyPopin/jquery.prettyPopin.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery.touchSwipe.min.js"></script>
+	<script type="text/javascript" src="js/carouFredSel/jquery.carouFredSel-6.2.0-packed.js"></script>
+	<script type="text/javascript" src="js/mdetect/mdetect.js"></script>
+	<script type="text/javascript" src="js/configuration.js"></script>
+
+	<!-- CUSTOM SCRIPTS FOR THIS PAGE -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			$('#news .ticker .carousel').carouFredSel({
+					width: 800,
+					height: 320,
+					direction: 'top',
+					items: 1,
+					auto: false,
+					mousewheel: true,
+					swipe: true,
+					prev: {
+						button: '#news .ticker .navi .prev',
+						key: "left"
+					},
+					next: {
+						button: '#news .ticker .navi .next',
+						key: "right"
+					},
+					scroll: {
+						duration: 600,
+						easing: "easeOutQuart",
+						onBefore: function( data ) {
+							data.items.visible.children().css('opacity', 0).delay(200).fadeTo(300, 1);
+							data.items.old.children().fadeTo(400, 0);
+						}
+					}
+			});
+
+			//TOOLTIPS
+			$("#news .ticker .carousel .item .links img").tipsy({ gravity: 'n', fade: true, offset: 8 });
+
+		});
+	</script>
+
+</head>
+
+<body>
+
+	<!-- FULLSCREEN HTML5 CONTAINER -->
+	<div id="canvas" class="canvas">
+
+
+		<!-- FULLSCREEN BACKGROUND -->
+		<div id="backg">
+			<img src="images/background.jpg" class="bg" alt="" />
+		</div>
+		
+		
+			
+		<!-- HEADER --> 
+		<div id="header">
+			<a href="index.html"><img src="images/logo.png" alt="" /></a>
+		</div>
+
+
+
+		<!-- MENU -->
+		<div id="menu">
+				<ul>
+					<li>
+						<a href="#">GALLERIES</a>
+						<ul class="second-level">
+							<li><a href="horizontal_gallery.html">HORIZONTAL GALLERY</a></li>
+							<li><a href="fullscreen_gallery.html">FULLSCREEN GALLERY</a></li>
+							<li><a href="grid_gallery.html">GRID GALLERY</a></li>
+							<li><a href="slider_gallery.html">SLIDER GALLERY</a></li>
+							<li><a href="video_gallery.html">HTML5 VIDEO</a></li>
+							<li><a href="team.html">TEAM</a></li>
+						</ul>
+					</li>
+
+					<li><a href="about.html">ABOUT</a></li>
+					<li><a href="testimonials.html">TESTIMONIALS</a></li>
+					<li><a href="news.html" class="menu-active disabled">NEWS</a></li>
+					<li><a href="contact.html">CONTACT</a></li>
+					<li><a href="blog.html">BLOG</a></li>
+					<li><a href="http://www.google.com" target="_blank" class="external">LINK</a></li>
+				</ul>
+		</div>
+
+
+
+		<!-- SOCIAL -->
+		<div id="social">
+			<ul>
+				<li><a href="http://www.facebook.com/pezflash.previews" target="_blank" title="FACEBOOK"><img src="images/icon_facebook.png" alt="facebook"/></a></li>
+				<li><a href="http://www.twitter.com/pezflash" target="_blank" title="TWITTER"><img src="images/icon_twitter.png" alt="twitter"/></a></li>
+				<li><a href="http://www.pinterest.com/pezflash" target="_blank" title="PINTEREST"><img src="images/icon_pinterest.png" alt="pinterest"/></a></li>
+				<li><a href="http://www.vimeo.com/pezflash" target="_blank" title="VIMEO"><img src="images/icon_vimeo.png" alt="vimeo"/></a></li>
+			</ul>
+		</div>
+
+
+		<!-- MAIN CONTAINER -->
+		<div id="container">
+
+			<div id="news">
+
+				<!-- TITLE --> 
+				<span class="title">STAY UPDATED!</span>
+
+				<!-- DIVIDER --> 
+				<div class="line"></div>
+
+				<!-- TICKER --> 
+				<div class="ticker">
+
+					<div class="navi">
+						<img src="images/prev_bt.png" alt="" class="prev" />
+						<img src="images/next_bt.png" alt="" class="next" />
+					</div>
+
+					<div class="carousel">
+						<div class="item">
+							<img src="images/news/img_01.jpg" alt="" />
+							<div class="date">September 18th, 2013</div>
+							<div class="links"><a href="#"><img src="images/news/permalink.png" title="Permalink" alt="" /></a><a href="#"><img src="images/news/external.png" title="Go to site" alt="" /></a></div>
+							<div class="text">
+								<h3>This is a news title. Use Scroll-Wheel!</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et <strong>dolore magna aliqua.</strong> Ut enim ad minim veniam, quis nostrud exercitation enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet incididunt ut labore et dolore magna aliqua.<br/><br/>Ut enim ad minim veniam, quis nostrud exercitation ullamco. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et <strong>dolore magna aliqua.</strong> Ut enim ad minim veniam, quis nostrud exercitation enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet incididunt ut labore et dolore magna aliqua.<br/><br/>Ut enim ad minim veniam, quis nostrud exercitation ullamco.<br/><br/></p>
+								<a href="#">&raquo; External link</a>
+							</div>
+						</div>
+
+						<div class="item">
+							<img src="images/news/img_02.jpg" alt="" />
+							<div class="date">September 18th, 2013</div>
+							<div class="links"><a href="#"><img src="images/news/permalink.png" title="Permalink" alt="" /></a><a href="#"><img src="images/news/external.png" title="Go to site" alt="" /></a></div>
+							<div class="text">
+								<h3>This is another larger news title displaying on two lines <br/>Nostrud exer onsectetur adipisicing elit.</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et <strong>dolore magna aliqua.</strong> Ut enim ad minim veniam, quis nostrud exercitation enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet incididunt ut labore et dolore consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et <strong>dolore magna aliqua.</strong> Ut enim ad minim veniam, quis nostrudmagna aliqua.<br/><br/>Ut enim ad minim veniam, quis nostrud exercitation ullamco. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et <strong>dolore magna aliqua.</strong> Ut enim ad minim veniam, quis nostrud exercitation enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet incididunt ut labore et dolore magna aliqua.<br/><br/>Ut enim ad minim veniam, quis nostrud exercitation ullamco.<br/><br/></p>
+								<a href="#">&raquo; External link</a>
+							</div>
+						</div>
+
+						<div class="item">
+							<img src="images/news/img_03.jpg" alt="" />
+							<div class="date">September 18th, 2013</div>
+							<div class="links"><a href="#"><img src="images/news/permalink.png" title="Permalink" alt="" /></a><a href="#"><img src="images/news/external.png" title="Go to site" alt="" /></a></div>
+							<div class="text">
+								<h3>This is a news title</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et <strong>dolore magna aliqua.</strong> Ut enim ad minim veniam, quis nostrud exercitation enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet incididunt ut labore et dolore magna aliqua.<br/><br/>Ut enim ad minim veniam, quis nostrud exercitation ullamco. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et <strong>dolore magna aliqua.</strong> Ut enim ad minim veniam, quis nostrud exercitation enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet incididunt ut labore et dolore magna aliqua.<br/><br/>Ut enim ad minim veniam, quis nostrud exercitation ullamco.<br/><br/></p>
+								<a href="#">&raquo; External link</a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>	
+		<!-- END CONTAINER -->
+
+		
+
+		<!-- FOOTER -->
+		<div id="footer">
+			<ul>
+				<li>Copyright KF&amp;KOI © 2013    - <a href="mailto:info@kfkoi.com">info@kfkoi.com</a></li>
+				<li><a href="legal.html" data-rel="prettyPopin">Legal</a></li>
+			</ul>
+		</div>
+
+
+
+		<!-- FULLSCREEN BUTTON -->
+		<div id="fullscreen">
+			<a href="#" title="GO FULLSCREEN"><img src="images/fullscreen_bt.png" alt="" /></a>
+		</div>
+
+
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE HTML>
+<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]--> 
+<!--[if IE 9 ]>    <html lang="en" class="ie"> <![endif]--> 
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<title>Typeface - Minimal Html/jQuery template by pezflash</title>
+	<meta name="description" content="Html - jQuery template by pezflash"/>
+	<meta name="keywords" content=""/>
+	<meta name="robots" content="index, follow"/>
+	
+	<!-- CSS -->
+	<link rel="shortcut icon" href="images/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="css/reset.css" media="all">
+	<link rel="stylesheet" type="text/css" href="js/tipsy/tipsy.css" />
+	<link rel="stylesheet" type="text/css" href="js/prettyPopin/prettyPopin.css" />
+	<link rel="stylesheet" type="text/css" href="js/prettyPhoto/css/prettyPhoto.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="css/styles.css" />
+	
+	<!-- SCRIPTS -->
+	<script type="text/javascript" src="js/jquery/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery-ui-1.10.1.custom.min.js"></script>
+	<script type="text/javascript" src="js/screenfull/screenfull.js"></script>
+	<script type="text/javascript" src="js/tipsy/jquery.tipsy.js"></script>
+	<script type="text/javascript" src="js/prettyPopin/jquery.prettyPopin.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="js/prettyPhoto/js/jquery.prettyPhoto.js"></script>
+	<script type="text/javascript" src="js/quicksand/jquery.quicksand.min.js"></script>
+	<script type="text/javascript" src="js/mdetect/mdetect.js"></script>
+	<script type="text/javascript" src="js/configuration.js"></script>
+
+	<!-- CUSTOM SCRIPTS FOR THIS PAGE -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			//FILTERABLE GRID GALLERY (QUICKSAND PLUGIN)
+			$(".items a").hover( function(){ 
+				$(this).children("img").stop(true, true).animate({ opacity: 1 }, 500); 
+			}, function(){ 
+				$(this).children("img").stop(true, true).animate({ opacity: 0.8 }, 1000); 
+			}); 
+
+			var $cloned = $(".items").clone();
+			
+			//CLICK TRIGGER
+			$(".filter a").click(function(e){
+				
+				$(".filter li").removeClass("current");
+				
+				var $fClass = $(this).parent().attr("class");
+
+				if ( $fClass == "all" ) {
+					var $filtered = $cloned.find("li");
+				} else {
+					var $filtered = $cloned.find("li[data-type~=" + $fClass + "]");
+				}
+
+				//FILTERING (QUICKSAND CALL)
+				$(".items").quicksand( $filtered, { 
+					duration: 700, 
+					easing: 'easeOutQuad' 
+				}, function(){			
+					$(".items a").hover( function(){ 
+						$(this).children("img").stop(true, true).animate({ opacity: 1 }, 500); 
+					}, function(){ 
+						$(this).children("img").stop(true, true).animate({ opacity: 0.7 }, 1000); 
+					});
+					
+					//CALL AGAIN PRETTYPHOTO FOR FILTERED ITEMS
+					$(".items a[rel^='prettyPhoto']").prettyPhoto({social_tools: false, theme:'typeface'});
+				});
+
+				//ACTIVATE CURRENT
+				$(this).parent().addClass("current");
+				e.preventDefault();
+			});
+
+
+			//PRETTYPHOTO LIGHTBOX GALLERY
+			$("a[rel^='prettyPhoto']").prettyPhoto({
+				social_tools:false,
+				theme:'typeface'	//CUSTOM THEME
+			});
+
+			//TRIGGER CLICK EVENT TO DISPLAY SUBMENU
+			//DISABLE IF YOU DON'T WANT THE SUBMENU APPEAR BY DEFAULT
+			$('#menu #has-second').trigger('click');
+
+		});
+	</script>
+
+</head>
+
+
+<body>
+		
+	<!-- FULLSCREEN HTML5 CONTAINER -->
+	<div id="canvas" class="canvas">
+
+
+		<!-- FULLSCREEN BACKGROUND -->
+		<div id="backg">
+			<img src="images/background.jpg" class="bg" alt="" />
+		</div>
+		
+
+			
+		<!-- HEADER --> 
+		<div id="header">
+			<a href="index.html"><img src="images/logo.png" alt="" /></a>
+		</div>
+
+
+
+		<!-- MENU -->
+		<div id="menu">
+				<ul>
+					<li>
+						<a href="#" class="menu-active" id="has-second">GALLERIES</a>
+						<ul class="second-level">
+							<li><a href="horizontal_gallery.html">HORIZONTAL GALLERY</a></li>
+							<li><a href="fullscreen_gallery.html">FULLSCREEN GALLERY</a></li>
+							<li><a href="grid_gallery.html" class="menu-active disabled">GRID GALLERY</a></li>
+							<li><a href="slider_gallery.html">SLIDER GALLERY</a></li>
+							<li><a href="video_gallery.html">HTML5 VIDEO</a></li>
+							<li><a href="team.html">TEAM</a></li>
+						</ul>
+					</li>
+
+					<li><a href="about.html">ABOUT</a></li>
+					<li><a href="testimonials.html">TESTIMONIALS</a></li>
+					<li><a href="news.html">NEWS</a></li>
+					<li><a href="contact.html">CONTACT</a></li>
+					<li><a href="blog.html">BLOG</a></li>
+					<li><a href="http://www.google.com" target="_blank" class="external">LINK</a></li>
+				</ul>
+		</div>
+
+
+
+		<!-- SOCIAL -->
+		<div id="social">
+			<ul>
+				<li><a href="http://www.facebook.com/pezflash.previews" target="_blank" title="FACEBOOK"><img src="images/icon_facebook.png" alt="facebook"/></a></li>
+				<li><a href="http://www.twitter.com/pezflash" target="_blank" title="TWITTER"><img src="images/icon_twitter.png" alt="twitter"/></a></li>
+				<li><a href="http://www.pinterest.com/pezflash" target="_blank" title="PINTEREST"><img src="images/icon_pinterest.png" alt="pinterest"/></a></li>
+				<li><a href="http://www.vimeo.com/pezflash" target="_blank" title="VIMEO"><img src="images/icon_vimeo.png" alt="vimeo"/></a></li>
+			</ul>
+		</div>
+
+
+
+		<!-- MAIN CONTAINER -->
+		<div id="container">
+
+			<!-- TEAM GALLERY -->
+			<div id="grid-gallery">
+
+				<!-- CATEGORIES -->
+				<dl class="group">
+					<dt>Categories:</dt>
+					<dd>
+						<ul class="filter group"> 
+							<li class="current all"><a href="#">ALL</a></li> 
+							<li class="residential"><a href="#">RESIDENTIAL</a></li> 
+							<li class="industrial"><a href="#">INDUSTRIAL</a></li> 
+							<li class="offices"><a href="#">OFFICES</a></li>
+						</ul> 
+					</dd>
+				</dl>
+
+				<!-- ITEMS -->
+				<ul class="items group">
+					<li class="item" data-id="id-1" data-type="offices">
+						<a href="images/galleries/grid/big_01.jpg" data-rel="prettyPhoto[portfolio]"><img src="images/galleries/grid/thumb_01.jpg" width="135" height="85" alt="Project title" /></a>
+						
+					</li> 
+					<li class="item" data-id="id-2" data-type="residential">
+						<a href="images/galleries/grid/big_02.jpg" data-rel="prettyPhoto[portfolio]"><img src="images/galleries/grid/thumb_02.jpg" width="135" height="85" alt="Project title" /></a>
+						
+					</li>
+					<li class="item" data-id="id-3" data-type="residential">
+						<a href="images/galleries/grid/big_03.jpg" data-rel="prettyPhoto[portfolio]"><img src="images/galleries/grid/thumb_03.jpg" width="135" height="85" alt="Project title" /></a>
+						
+					</li>
+					<li class="item" data-id="id-4" data-type="offices">
+						<a href="images/galleries/grid/big_04.jpg" data-rel="prettyPhoto[portfolio]"><img src="images/galleries/grid/thumb_04.jpg" width="135" height="85" alt="Project title" /></a>
+					</li>
+					<li class="item" data-id="id-5" data-type="industrial">
+						<a href="images/galleries/grid/big_05.jpg" data-rel="prettyPhoto[portfolio]"><img src="images/galleries/grid/thumb_05.jpg" width="135" height="85" alt="Project title" /></a>
+					</li>
+					<li class="item" data-id="id-6" data-type="residential">
+						<a href="images/galleries/grid/big_06.jpg" data-rel="prettyPhoto[portfolio]"><img src="images/galleries/grid/thumb_06.jpg" width="135" height="85" alt="Project title" /></a>
+					</li>
+					<li class="item" data-id="id-7" data-type="industrial">
+						<a href="images/galleries/grid/big_07.jpg" data-rel="prettyPhoto[portfolio]"><img src="images/galleries/grid/thumb_07.jpg" width="135" height="85" alt="Project title" /></a>
+					</li>
+					<li class="item" data-id="id-8" data-type="industrial">
+						<a href="images/galleries/grid/big_08.jpg" data-rel="prettyPhoto[portfolio]"><img src="images/galleries/grid/thumb_08.jpg" width="135" height="85" alt="Project title" /></a>
+					</li>
+					<li class="item" data-id="id-9" data-type="offices">
+						<a href="images/galleries/grid/big_09.jpg" data-rel="prettyPhoto[portfolio]"><img src="images/galleries/grid/thumb_09.jpg" width="135" height="85" alt="Project title" /></a>
+					</li>
+					<li class="item" data-id="id-10" data-type="industrial">
+						<a href="images/galleries/grid/big_10.jpg" data-rel="prettyPhoto[portfolio]"><img src="images/galleries/grid/thumb_10.jpg" width="135" height="85" alt="Project title" /></a>
+					</li>
+					<li class="item" data-id="id-11" data-type="offices">
+						<a href="images/galleries/grid/big_11.jpg" data-rel="prettyPhoto[portfolio]"><img src="images/galleries/grid/thumb_11.jpg" width="135" height="85" alt="Project title" /></a>
+					</li>
+					<li class="item" data-id="id-12" data-type="industrial">
+						<a href="images/galleries/grid/big_12.jpg" data-rel="prettyPhoto[portfolio]"><img src="images/galleries/grid/thumb_12.jpg" width="135" height="85" alt="Project title" /></a>
+					</li>
+					<li class="item" data-id="id-13" data-type="industrial">
+						<a href="images/galleries/grid/big_13.jpg" data-rel="prettyPhoto[portfolio]"><img src="images/galleries/grid/thumb_13.jpg" width="135" height="85" alt="Project title" /></a>
+					</li>
+					<li class="item" data-id="id-14" data-type="industrial">
+						<a href="images/galleries/grid/big_14.jpg" data-rel="prettyPhoto[portfolio]"><img src="images/galleries/grid/thumb_14.jpg" width="135" height="85" alt="Project title" /></a>
+					</li>
+					<li class="item" data-id="id-15" data-type="offices">
+						<a href="images/galleries/grid/big_15.jpg" data-rel="prettyPhoto[portfolio]"><img src="images/galleries/grid/thumb_15.jpg" width="135" height="85" alt="Project title" /></a>
+					</li>
+				</ul>
+
+			</div>
+
+		</div>
+		<!-- END CONTAINER -->
+
+
+
+		<!-- BOTTOM CLAIM -->
+		<div id="bottom-claim">THIS IS A BRIEF SAMPLE OF OUR DESIGN WORKS<br/>DOWNLOAD A FULL BROCHURE IN <span style="color:#00ccff;">PDF</span></div>
+
+
+
+		<!-- FOOTER -->
+		<div id="footer">
+			<ul>
+				<li>Copyright KF&amp;KOI © 2013    - <a href="mailto:info@kfkoi.com">info@kfkoi.com</a></li>
+				<li><a href="legal.html" data-rel="prettyPopin">Legal</a></li>
+			</ul>
+		</div>
+
+
+
+		<!-- FULLSCREEN BUTTON -->
+		<div id="fullscreen">
+			<a href="#" title="GO FULLSCREEN"><img src="images/fullscreen_bt.png" alt="" /></a>
+		</div>
+
+
+	</div>
+
+</body>
+</html>
