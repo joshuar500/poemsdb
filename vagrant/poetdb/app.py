@@ -58,8 +58,40 @@ def get_poem(poem_id):
 # returns a single poem in json for jquery update
 @app.route('/search')
 def search():
-    # poem = session.query(Poem).filter_by(id=poem_id).one()
     return render_template('search.html')
+
+
+# returns a single poem in json for jquery update
+@app.route('/results', methods=['GET', 'POST'])
+def results():
+    if request.method == 'POST':
+        print "inside of request POST"
+        search_term = request.form['search_term']
+        poems = session.query(Poem).filter(Poem.name.startswith(search_term)).order_by(Poem.name).all()
+        authors = session.query(Author).filter(Author.name.startswith(search_term)).order_by(Author.name).all()
+        for p in poems:
+            print "first for loops"
+            print p
+        if poems is not None:
+            print "poems not none"
+            for p in poems:
+                print "p"
+                print p
+            if authors is not None:
+                for a in authors:
+                    print "a"
+                    print a
+                print "author not none"
+                return redirect(url_for('results', poems=poems, authors=authors))
+        elif authors is not None:
+            print "authors only"
+            return redirect(url_for('results', authors=authors))
+        else:
+            print "no results"
+            # this should be an error flash
+            return render_template('search.html')
+    else:
+        return render_template('results.html')
 
 
 @app.route('/about')
