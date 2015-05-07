@@ -1,0 +1,70 @@
+{% extends "includes/layout.html" %}
+{% block body %}
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+            //AJAX SCRIPT FOR CONTACT FORM VALIDATION
+            showLoader = function() {
+                icon.fadeIn("slow");
+            };
+                     
+            checkStatus = function(status) {
+                icon.fadeOut("slow");
+                document.getElementById('ajax_loader').innerHTML = status;
+            };
+
+            var formOpt = { beforeSubmit:showLoader, success:checkStatus };
+            $('#myForm').ajaxForm(formOpt); 
+            
+    });
+</script>
+
+<body>
+
+    <!-- FULLSCREEN HTML5 CONTAINER -->
+    <div id="canvas" class="canvas">
+
+
+        <!-- FULLSCREEN BACKGROUND -->
+        {% include "includes/bg.html" %}
+            
+        <!-- HEADER --> 
+        {% include "includes/header.html" %}
+
+        <!-- MENU -->
+        {% include "includes/menu.html" %}
+
+        <!-- SOCIAL -->
+        {% include "includes/social.html" %}
+
+        <!-- MAIN CONTAINER -->
+        <div id="container">
+
+            <div id="contact">            
+
+                <div class="newsletter">
+                    <span class="title">Type in a poem or author</span>
+                    <form id="myForm" method="post" action="">
+                        <input type="text" value="" id="email" name="search_term" class="fields" onfocus="if(this.value == '') {this.value = '';}" onblur="if (this.value == '') {this.value = '';}"><br/>
+                        <button type="submit" id="submit" name="submit" class="button"><span>SEARCH</span></button>
+                        <div id="ajax_loader" class="loader_message"></div><div id="loader_icon" class="loader_icon"></div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>  
+        <!-- END CONTAINER -->
+
+        <!-- FOOTER -->
+        {% include "includes/footer.html" %}
+
+        <!-- FULLSCREEN BUTTON -->
+        {% include "includes/fullbtn.html" %}
+
+
+    </div>
+
+</body>
+{% endblock %}                

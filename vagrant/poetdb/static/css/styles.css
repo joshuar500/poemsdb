@@ -1387,7 +1387,7 @@ body {
 #contact .newsletter {
 	position: absolute;
 	left: 0px;
-	top: 280px;
+	top: 200px;
 	line-height: 15px;
 	color: #fff;
 	width: 200px;
@@ -1690,6 +1690,22 @@ body {
 
 .ie #fullscreen {
 	display: none;
+}
+
+/* FIX LINES FOR POEMS */
+
+.fix-lines {
+    white-space: pre-line;
+    white-space: pre-wrap;
+}
+
+.poem-title {
+	font-size: 1.6em;
+	color: #484848;
+}
+
+.poem {
+	color:#484848;
 }
 
 

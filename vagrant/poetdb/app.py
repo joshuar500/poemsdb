@@ -30,7 +30,7 @@ def authors():
     return render_template('index.html', authors=authors)
 
 
-# queries all authors and returns JSON
+# queries all authors
 @app.route('/get_author/<string:author_letter>')
 def get_authors(author_letter):
     print author_letter
@@ -41,22 +41,25 @@ def get_authors(author_letter):
 
 
 # returns a list of the authors poems in json format
-# list is updated via jquery getJSON
-@app.route('/get_author_poems')
-def get_author_poems():
-    author_id = request.args.get('author_id', 0, type=int)
+@app.route('/get_poems/<int:author_id>')
+def get_author_poems(author_id):
     author = session.query(Author).filter_by(id=author_id).one()
     poems = session.query(Poem).filter_by(author_id=author.id).all()
-    return jsonify(Poems=[p.serialize for p in poems])
+    return render_template('poems.html', poems=poems)
 
 
 # returns a single poem in json for jquery update
-@app.route('/get_poem')
-def get_poem():
-    print "IM HERE"
-    poem_id = request.args.get('poem_id', 0, type=int)
+@app.route('/get_poem/<int:poem_id>')
+def get_poem(poem_id):
     poem = session.query(Poem).filter_by(id=poem_id).one()
-    return jsonify(Poem=poem.serialize)
+    return render_template('poem.html', poem=poem)
+
+
+# returns a single poem in json for jquery update
+@app.route('/search')
+def search():
+    # poem = session.query(Poem).filter_by(id=poem_id).one()
+    return render_template('search.html')
 
 
 @app.route('/about')

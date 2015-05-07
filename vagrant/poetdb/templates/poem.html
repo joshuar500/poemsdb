@@ -22,9 +22,8 @@
         <!-- MAIN CONTAINER -->
         <div id="container">            
 
-            {% for a in authors %}
-            <span><a href="/get_poems/{{a.id}}">{{a.name}}</a></span>
-            {% endfor %}
+            <div class="poem-title">{{poem.name}}</div>
+            <span class="poem fix-lines">{{poem.the_poem}}</span>
 
         </div>  
         <!-- END CONTAINER -->
