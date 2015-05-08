@@ -47,9 +47,9 @@
 
                 <div class="newsletter">
                     <span class="title">Type in a poem or author</span>
-                    <form id="myForm" method="post" action="{{url_for('results', search_term=search_term)}}">
+                    <form id="myForm" method="post" action="{{url_for('search')}}">
                         <input type="text" value="" id="email" name="search_term" class="fields"><br/>
-                        <button type="submit" id="submit" name="submit" class="button"><span>SEARCH</span></button>
+                        <button id="formbutton" type="submit" id="submit" name="submit" class="button"><span>SEARCH</span></button>
                         <div id="ajax_loader" class="loader_message"></div><div id="loader_icon" class="loader_icon"></div>
                     </form>
                 </div>

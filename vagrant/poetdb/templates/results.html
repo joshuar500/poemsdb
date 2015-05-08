@@ -23,7 +23,11 @@
         <div id="container">            
             
             {% for p in poems %}
-            <div class="poem-title">{{poem.name}}</div>            
+            <div class="poem-title">{{p.name}}</div><br />           
+            {% endfor %}
+            <br />
+            {% for a in authors %}
+            <div class="poem-title">{{a.name}}</div><br />
             {% endfor %}
 
         </div>  

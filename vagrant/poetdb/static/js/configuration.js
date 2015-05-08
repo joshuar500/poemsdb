@@ -258,6 +258,15 @@ $(document).ready(function() {
 		});
 	};
 
+
+
+
+	//////////////////////////////////////////////////////
+	//FORM SUBMIT
+	$('#formbutton').submit(function(e) {  // this handles the submit event
+            window.location = "http://localhost:5000/results";
+	});
+
 	
 });
 
