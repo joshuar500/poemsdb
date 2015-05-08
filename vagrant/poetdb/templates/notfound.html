@@ -1,0 +1,41 @@
+{% extends "includes/layout.html" %}
+{% block body %}
+
+<body>
+
+    <!-- FULLSCREEN HTML5 CONTAINER -->
+    <div id="canvas" class="canvas">
+
+
+        <!-- FULLSCREEN BACKGROUND -->
+        {% include "includes/bg.html" %}
+            
+        <!-- HEADER --> 
+        {% include "includes/header.html" %}
+
+        <!-- MENU -->
+        {% include "includes/menu.html" %}
+
+        <!-- SOCIAL -->
+        {% include "includes/social.html" %}
+
+        <!-- MAIN CONTAINER -->
+        <div id="container">
+            
+            <div class="poem-title">NO RESULTS FOUND.</div>                         
+            
+
+        </div>  
+        <!-- END CONTAINER -->
+
+        <!-- FOOTER -->
+        {% include "includes/footer.html" %}
+
+        <!-- FULLSCREEN BUTTON -->
+        {% include "includes/fullbtn.html" %}
+
+
+    </div>
+
+</body>
+{% endblock %}

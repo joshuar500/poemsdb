@@ -74,6 +74,8 @@ def search():
         elif any(search_term in a.name for a in authors):
             print "only authors!"
             return render_template('results.html', authors=authors)
+        else:
+            return render_template('notfound.html')
     else:
         print "in the last else"
         return render_template('search.html')
