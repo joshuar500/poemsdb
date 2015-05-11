@@ -2,12 +2,12 @@ from flask import Flask, render_template, request,\
     redirect, url_for, jsonify
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from db_setup import Base, Author, Poem
+from models import DeclarativeBase, Author, Poem
 
 app = Flask(__name__)
 
-engine = create_engine('sqlite:///poetryandalcohol.db')
-Base.metadata.bind = engine
+engine = create_engine('postgresql://postgres:popcorn1@localhost/poetryandalcohol')
+DeclarativeBase.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
@@ -60,10 +60,10 @@ def search():
     if request.method == 'POST':
         print "inside of request POST"
         search_term = request.form['search_term']
-        poems = session.query(Poem).filter(Poem.name.contains(search_term)).all()
+        poems = session.query(Poem).filter(Poem.title.contains(search_term)).all()
         authors = session.query(Author).filter(Author.name.contains(search_term)).all()
 
-        if any(search_term in p.name for p in poems):
+        if any(search_term in p.title for p in poems):
             print "found a poem!"
             if any(search_term in a.name for a in authors):
                 print "found an author!"
