@@ -6,7 +6,7 @@ from models import DeclarativeBase, Author, Poem
 
 app = Flask(__name__)
 
-engine = create_engine('postgresql://postgres:popcorn1@localhost/poetryandalcohol')
+engine = create_engine('postgresql://postgres:asdf123@localhost/poetryandalcohol')
 DeclarativeBase.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
